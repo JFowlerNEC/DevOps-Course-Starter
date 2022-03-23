@@ -30,7 +30,7 @@ def get_item(id):
     return next((item for item in items if item['id'] == int(id)), None)
 
 
-def add_item(title):
+def add_item(title,status):
     """
     Adds a new item with the specified title to the session.
 
@@ -45,7 +45,7 @@ def add_item(title):
     # Determine the ID for the item based on that of the previously added item
     id = items[-1]['id'] + 1 if items else 0
 
-    item = { 'id': id, 'title': title, 'status': 'Not Started' }
+    item = { 'id': id, 'title': title, 'status': status }
 
     # Add the item to the list
     items.append(item)
