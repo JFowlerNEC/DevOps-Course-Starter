@@ -21,6 +21,7 @@ def get_items():
     first_list = response_json[0]
 
     first_list_cards = first_list['cards']
+ 
 
     return first_list_cards
 
