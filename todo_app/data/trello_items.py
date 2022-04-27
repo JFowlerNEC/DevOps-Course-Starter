@@ -4,36 +4,64 @@ trello_key = os.environ.get('TRELLO_KEY')
 trello_token = os.environ.get('TRELLO_TOKEN')
 trello_board = os.environ.get('TRELLO_BOARD')
 
-def get_items():
+def get_todo_items():
 
     reqUrl = f"https://api.trello.com/1/boards/{trello_board}/lists"
 
     query_params = {
         "key": trello_key,
         "token": trello_token,
-        "cards": "open"
+        "cards": "all"
     }
 
     response = requests.get(reqUrl, params=query_params)
 
     response_json = response.json()
 
-    first_list = response_json[0]
+    todo_list = response_json[0]
 
-    first_list_cards = first_list['cards']
+    todo_list_cards = todo_list['cards']
+
+    return todo_list_cards
+
+def get_doing_items():
+
+    reqUrl = f"https://api.trello.com/1/boards/{trello_board}/lists"
+
+    query_params = {
+        "key": trello_key,
+        "token": trello_token,
+        "cards": "all"
+    }
+
+    response = requests.get(reqUrl, params=query_params)
+
+    response_json = response.json()
+
+    doing_list = response_json[1]
+
+    doing_list_cards = doing_list['cards']
  
+    return doing_list_cards
 
-    return first_list_cards
 
-# def get_items(id):
+def get_done_items():
 
-    
-# def add_item(title,status):
+    reqUrl = f"https://api.trello.com/1/boards/{trello_board}/lists"
 
-# def save_item(item):
+    query_params = {
+        "key": trello_key,
+        "token": trello_token,
+        "cards": "all"
+    }
 
-# def complete_item(id):
+    response = requests.get(reqUrl, params=query_params)
 
-# def start_item(id):
+    response_json = response.json()
 
-# def progress_item(id):
+    done_list = response_json[2]
+
+    done_list_cards = done_list['cards']
+ 
+    return done_list_cards
+
