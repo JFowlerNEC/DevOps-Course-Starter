@@ -1,6 +1,6 @@
 from todo_app.flask_config import Config
 
-from flask import Flask, render_template, request, redirect
+from flask import Flask, render_template, request, redirect, url_for
 from todo_app.data import trello_items as trello
 
 
@@ -33,5 +33,5 @@ def todo_item(id):
 
 @app.route('/items/<id>/doing')
 def doing_item(id):
-    trello.progress_item(id)
+    trello.update_item(id)
     return redirect(url_for('index'))   
