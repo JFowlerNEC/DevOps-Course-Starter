@@ -65,3 +65,33 @@ def get_done_items():
  
     return done_list_cards
 
+
+def update_item(card_id):
+
+
+    reqUrl = f"https://api.trello.com/1/cards/{card_id}/"
+
+    query_params = {
+        "key": trello_key,
+        "token": trello_token,
+        "idList": "626653880ecf1c46be8073f8"
+    }
+
+    response = requests.request("PUT", reqUrl, params=query_params)
+    
+    print(response.text)
+
+def complete_item(card_id):
+
+
+    reqUrl = f"https://api.trello.com/1/cards/{card_id}/"
+
+    query_params = {
+        "key": trello_key,
+        "token": trello_token,
+        "idList": "626653880ecf1c46be8073f9"
+    }
+
+    response = requests.request("PUT", reqUrl, params=query_params)
+    
+    print(response.text)
