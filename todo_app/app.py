@@ -17,18 +17,17 @@ def index():
 @app.route('/items/new', methods=['POST'])
 def add_item():
     title = request.form['title']
-    trello.add_item(title)
+    trello.add_item(id)
     return redirect(url_for('index'))
 
 @app.route('/items/<id>/complete')
 def complete_item(id):
-    session.complete_item(id)
     trello.complete_item(id)
     return redirect(url_for('index'))
 
 @app.route('/items/<id>/todo')
 def todo_item(id):
-    trello.start_item(id)
+    trello.todo_item(id)
     return redirect(url_for('index'))
 
 @app.route('/items/<id>/doing')
