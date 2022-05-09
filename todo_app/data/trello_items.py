@@ -95,3 +95,32 @@ def complete_item(card_id):
     response = requests.request("PUT", reqUrl, params=query_params)
     
     print(response.text)
+def doing_item(card_id):
+
+
+    reqUrl = f"https://api.trello.com/1/cards/{card_id}/"
+
+    query_params = {
+        "key": trello_key,
+        "token": trello_token,
+        "idList": "626653880ecf1c46be8073f9"
+    }
+
+    response = requests.request("PUT", reqUrl, params=query_params)
+    
+    print(response.text)
+
+def todo_item(card_id):
+
+
+    reqUrl = f"https://api.trello.com/1/cards/{card_id}/"
+
+    query_params = {
+        "key": trello_key,
+        "token": trello_token,
+        "idList": "626653880ecf1c46be8073f7"
+    }
+
+    response = requests.request("PUT", reqUrl, params=query_params)
+    
+    print(response.text)
