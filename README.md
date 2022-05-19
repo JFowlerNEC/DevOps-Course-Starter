@@ -52,3 +52,17 @@ You should see output similar to the following:
  * Debugger PIN: 226-556-590
 ```
 Now visit [`http://localhost:5000/`](http://localhost:5000/) in your web browser to view the app.
+
+Tnis app now uses the Trello API. Therefore you will need 'key', 'token' and a 'board id' from your trello account for it to work.
+
+- The key is obtained here: https://trello.com/app-key
+- From the same page, follow the link to 'manually generate a Token', to obtain an authorisation token.
+- At the trello website, navigate to your board, and grab the board id from the url:
+     https://trello.com/b/{board_id}/....
+
+
+The key and token are configured in the .env file in this project: 
+- TRELLO_URL=https://www.trello.com
+- TRELLO_KEY={your key}
+- TRELLO_TOKEN={your token}
+- TRELLO_BOARD={your board}
