@@ -14,10 +14,10 @@ def index():
     done_items = trello.get_done_items()
     return render_template ('index.html',items=todo_items,items_doing=doing_items,items_done=done_items)
 
-@app.route('/items/new', methods=['POST'])
+@app.route('/items/new', methods=['POST']) 
 def add_item():
     title = request.form['title']
-    trello.add_item(id)
+    trello.add_item(title)
     return redirect(url_for('index'))
 
 @app.route('/items/<id>/complete')

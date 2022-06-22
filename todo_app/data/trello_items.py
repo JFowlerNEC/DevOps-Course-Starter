@@ -124,3 +124,13 @@ def todo_item(card_id):
     response = requests.request("PUT", reqUrl, params=query_params)
     
     print(response.text)
+
+
+    def add_item(title):
+
+        lists = get_todo_items()
+        url = 'https://www.trello.com/1/cards?key={0}&token={1}'.format(trello_key, trello_token)
+    
+        data = {'name' : title, 'idList': lists['To Do']}   
+        resp = requests.post(url, data)
+        return json.loads(resp.text)
