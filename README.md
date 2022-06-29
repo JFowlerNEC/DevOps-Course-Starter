@@ -66,3 +66,13 @@ The key and token are configured in the .env file in this project:
 - TRELLO_KEY={your key}
 - TRELLO_TOKEN={your token}
 - TRELLO_BOARD={your board}
+
+Added ancible inventory and playbook with the following tasks
+- commit git files
+- install poetry
+- copy poetry into todoapp
+- template added copy env values and prompt for trello token
+- todoapp service created so todoapp can be started automatically
+- todoapp service task to copy it to correct directory
+- task to start poetry and todo app
+ 
